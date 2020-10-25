@@ -8,6 +8,7 @@ import Loader from './layout/Loader'
 import Aux from "../hoc/_Aux";
 import ScrollToTop from './layout/ScrollToTop';
 import routes from "../route";
+//import reactWindowSize from 'react-window-size';
 
 const AdminLayout = Loadable({
     loader: () => import('./layout/AdminLayout'),
@@ -15,6 +16,10 @@ const AdminLayout = Loadable({
 });
 
 class App extends Component {
+    componentDidMount() {
+        window.location = "/Eth-Lagos/auth/signin-1";
+        
+    }
     render() {
         const menu = routes.map((route, index) => {
           return (route.component) ? (
