@@ -29,8 +29,24 @@ class Dashboard extends React.Component {
        getGrids() {
         
     
+
+    //     const testURL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+	// const myInit = {
+	// 	method: 'GET',
+	// 	mode: 'no-cors',
+	// };
+
+	// const myRequest = new Request(testURL, myInit);
+
+	// fetch(myRequest).then(function(response) {
+	// 	return response;
+	// }).then(function(response) {
+	// 	console.log(response);
+	// }).catch(function(e){
+	// 	console.log(e);
+	// });
         axiosInstance
-          .get("/api/mini-grids")
+          .post("/api/mini-grids")
           .then(function (response) {
             if (response.status === 200) {
               
