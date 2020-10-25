@@ -17,7 +17,7 @@ const AdminLayout = Loadable({
 
 class App extends Component {
     componentDidMount() {
-        window.location = "/Eth-Lagos/auth/signin-1";
+        // window.location = "/Eth-Lagos/auth/signin-1";
         
     }
     render() {
