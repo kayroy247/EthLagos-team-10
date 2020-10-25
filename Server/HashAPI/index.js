@@ -10,11 +10,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const SHA256 = require("crypto-js/sha256");
+var cors = require('cors')
 
 // const DATA = require('./models/index')
 
 const app = express();
-
+app.use(cors())
 const url = 'https://demo.micropowermanager.com/api'
 
 //Body parser which renders JSON formatted responses
@@ -35,7 +36,7 @@ app.get('/index', async(req, res) =>{
 app.get('/mini-grids', async(req, res) =>{
   try {
       const data = await fetch(`${url}/mini-grids`, {headers: {'content-type': 'application/json',
-          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NDQ4NTMsImV4cCI6MTYwMzY0ODQ1MywibmJmIjoxNjAzNjQ0ODUzLCJqdGkiOiJQUWd4STNZcDN6YUZpajd3Iiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.xhwCbi_mrRh4uwLa7GuoCwkqccXHoSYg3A6RyxiMOXY'}})
+          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NjI1ODcsImV4cCI6MTYwMzY2NjE4NywibmJmIjoxNjAzNjYyNTg3LCJqdGkiOiJTN29FS1p2aUlReVh2N05DIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.YrYu6zVUZxEJpZGwjZv_x1nw_TLNOI5MtcDvf-ex_4M'}})
       const response = await data.json()
       console.log(response.data)
 
@@ -78,7 +79,7 @@ app.get('/mini-grids', async(req, res) =>{
 app.get('/people', async(req, res) =>{
    try {
        const data = await fetch(`${url}/people`, {headers: {'content-type': 'application/json',
-           Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM1ODUyNjksImV4cCI6MTYwMzU4ODg2OSwibmJmIjoxNjAzNTg1MjY5LCJqdGkiOiJRMklxZkt1ZVgyWTN1SjlzIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.QLrEmUJqm1-sTECABSYnVhQ3e8f-Fnt1xvCtMTsIHQc'}})
+           Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NTY0MTksImV4cCI6MTYwMzY2MDAxOSwibmJmIjoxNjAzNjU2NDE5LCJqdGkiOiIxN3FRTWFmR3ZKS3h2UnpSIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.oI5P7-O3RogV6a_xBS_VwQhK1Rt4qhO3LdaiPTuNWbg'}})
        const response = await data.json()
        console.log(response.data[0].addresses[0].city.mini_grid_id)
 
@@ -94,7 +95,7 @@ app.get('/people', async(req, res) =>{
 app.get('/tariffs', async(req, res) =>{
     try {
         const data = await fetch(`${url}/tariffs`, {headers: {'content-type': 'application/json',
-            Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NDQ4NTMsImV4cCI6MTYwMzY0ODQ1MywibmJmIjoxNjAzNjQ0ODUzLCJqdGkiOiJQUWd4STNZcDN6YUZpajd3Iiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.xhwCbi_mrRh4uwLa7GuoCwkqccXHoSYg3A6RyxiMOXY'}})
+            Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NTY0MTksImV4cCI6MTYwMzY2MDAxOSwibmJmIjoxNjAzNjU2NDE5LCJqdGkiOiIxN3FRTWFmR3ZKS3h2UnpSIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.oI5P7-O3RogV6a_xBS_VwQhK1Rt4qhO3LdaiPTuNWbg'}})
         const response = await data.json()
         console.log(response)
 

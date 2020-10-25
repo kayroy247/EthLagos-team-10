@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            miniGrids: "renderit"
+            miniGrids: []
         };
       }
     
@@ -27,67 +27,31 @@ class Dashboard extends React.Component {
 
 
        getGrids() {
-        
-    
-
-    //     const testURL = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-	// const myInit = {
-	// 	method: 'GET',
-	// 	mode: 'no-cors',
-	// };
-
-	// const myRequest = new Request(testURL, myInit);
-
-	// fetch(myRequest).then(function(response) {
-	// 	return response;
-	// }).then(function(response) {
-	// 	console.log(response);
-	// }).catch(function(e){
-	// 	console.log(e);
-	// });
+           console.log(this);
         axiosInstance
-          .post("/api/mini-grids")
-          .then(function (response) {
-            if (response.status === 200) {
-              
-              console.log(response);
+          .get("/mini-grids")
+          .then( (response) => {
+           console.log(this);
+
+            if (response.data) {
+              this.setState({miniGrids: response.data})
+              console.log(response.data);
               
             } else {
               console.log(response);
             }
           })
-          .catch(function (error) {
+          .catch( (error) => {
              console.log(error);
           })
           .finally(() => console.log("final"));
       };
 
-   
-    async getMiniGrids(){
-
-        
-        try {
-          const response = await fetch("https://demo.micropowermanager.com/api/mini-grids", {
-            method: "GET",
-            mode: 'no-cors',
-            headers: {
-              Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDMzNzM0OTcsImV4cCI6MTYwMzM3NzA5NywibmJmIjoxNjAzMzczNDk3LCJqdGkiOiIyRWV0WXI0Mzl3bFN2SFVWIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OeFWSFhB5BpPz2ZC3G9Ynf4aS2LSk4BIJPHDSmSS4to`
-            }
-          });
-          const { status, data, message } = await response.json();
-          if (response.status === 200) {
-            this.setState(data);
-            console.log(response);
-          } else {
-            Swal.fire('', message, 'info');
-          }
-          
-        } catch (error) {
-            console.error(error)
-          Swal.fire('Oops', 'Something went wrong while getting entities', 'error');
-          
-        }
-      };
+      handleClick(e) {
+        e.preventDefault();
+        console.log('The link was clicked.');
+      }
+    
     
 
     render() {
@@ -153,17 +117,17 @@ class Dashboard extends React.Component {
         return (
             <Aux>
                 <Row>
-                    <Col md={6} xl={4}>
+                    {this.state.miniGrids.map(grid => (<Col md={6} xl={4} key={grid.id} style={{cursor: "pointer"}} onClick={this.handleClick}>
                         <Card>
                             <Card.Body>
-        <h6 className='mb-4'>Daily Sales{this.state.miniGrids}</h6>
+        <h6 className='mb-4'>Mini Grid</h6>
                                 <div className="row d-flex align-items-center">
                                     <div className="col-9">
-                                        <h3 className="f-w-300 d-flex align-items-center m-b-0"><i className="feather icon-arrow-up text-c-green f-30 m-r-5"/> $249.95</h3>
+                    <h3 className="f-w-300 d-flex align-items-center m-b-0"><i className="feather icon-arrow-up text-c-green f-30 m-r-5"/>{grid.name} </h3>
                                     </div>
 
                                     <div className="col-3 text-right">
-                                        <p className="m-b-0">50%</p>
+                    <p className="m-b-0">{grid.cluster_id}</p>
                                     </div>
                                 </div>
                                 <div className="progress m-t-30" style={{height: '7px'}}>
@@ -171,8 +135,8 @@ class Dashboard extends React.Component {
                                 </div>
                             </Card.Body>
                         </Card>
-                    </Col>
-                    <Col md={6} xl={4}>
+                    </Col>))}
+                    {/* <Col md={6} xl={4}>
                         <Card>
                             <Card.Body>
                                 <h6 className='mb-4'>Monthly Sales</h6>
@@ -482,7 +446,7 @@ class Dashboard extends React.Component {
                                 {tabContent}
                             </Tab>
                         </Tabs>
-                    </Col>
+                    </Col> */}
                 </Row>
             </Aux>
         );
