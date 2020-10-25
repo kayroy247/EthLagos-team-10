@@ -1,5 +1,8 @@
 /*
   Welcome! This is the entry point to the houserentportal-api
+
+  Commented out the Database Code. 
+  The Code is left here for use later.
 */
 
 //Dependencies used in the api
@@ -8,7 +11,7 @@ const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const SHA256 = require("crypto-js/sha256");
 
-const DATA = require('./models/index')
+// const DATA = require('./models/index')
 
 const app = express();
 
@@ -32,17 +35,17 @@ app.get('/index', async(req, res) =>{
 app.get('/mini-grids', async(req, res) =>{
   try {
       const data = await fetch(`${url}/mini-grids`, {headers: {'content-type': 'application/json',
-          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2MzM4NjgsImV4cCI6MTYwMzYzNzQ2OCwibmJmIjoxNjAzNjMzODY4LCJqdGkiOiJwTnNCd3ozREl4VkZCWlg1Iiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.qVYRE8zu84Po4FqTYJKAU8NcpjIFYpg2IRUyU55D4VY'}})
+          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NDQ4NTMsImV4cCI6MTYwMzY0ODQ1MywibmJmIjoxNjAzNjQ0ODUzLCJqdGkiOiJQUWd4STNZcDN6YUZpajd3Iiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.xhwCbi_mrRh4uwLa7GuoCwkqccXHoSYg3A6RyxiMOXY'}})
       const response = await data.json()
-      console.log(response.data[0])
+      console.log(response.data)
 
-      const { id, cluster_id, name, created_at, updated_at, data_stream } = response.data[0]
+      // const { id, cluster_id, name, created_at, updated_at, data_stream } = response.data[0]
       
-      const item = new DATA({id, cluster_id, name, created_at, updated_at, data_stream});
-      const items = await item.save();
-      console.log(items)
+      // const item = new DATA({id, cluster_id, name, created_at, updated_at, data_stream});
+      // const items = await item.save();
+      // console.log(items)
 
-      res.status(200).json({response})
+      res.status(200).json(response.data)
       
   } catch (error) {
       console.log(error);
@@ -50,27 +53,27 @@ app.get('/mini-grids', async(req, res) =>{
   }
 })
 
-app.get('/minigrids', async(req, res) => {
-  try {
-      const data = await DATA.find();
-      const response = await data.map(data => {
-        return {
-            _id: data._id,
-            id: data.id,
-            cluster_id: data.cluster_id,
-            name: data.name,
-            created_at: data.created_at,
-            updated_at: data.updated_at,
-            data_stream: data.data_stream,
-        }
-    })
-    res.status(200).json({response});
-    console.log(response)
-  } catch (error) { 
-      console.log(error);
-      res.status(500).json(error)
-   }
-})
+// app.get('/minigrids', async(req, res) => {
+//   try {
+//       const data = await DATA.find();
+//       const response = await data.map(data => {
+//         return {
+//             _id: data._id,
+//             id: data.id,
+//             cluster_id: data.cluster_id,
+//             name: data.name,
+//             created_at: data.created_at,
+//             updated_at: data.updated_at,
+//             data_stream: data.data_stream,
+//         }
+//     })
+//     res.status(200).json({response});
+//     console.log(response)
+//   } catch (error) { 
+//       console.log(error);
+//       res.status(500).json(error)
+//    }
+// })
 
 app.get('/people', async(req, res) =>{
    try {
@@ -91,7 +94,7 @@ app.get('/people', async(req, res) =>{
 app.get('/tariffs', async(req, res) =>{
     try {
         const data = await fetch(`${url}/tariffs`, {headers: {'content-type': 'application/json',
-            Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2MzM4NjgsImV4cCI6MTYwMzYzNzQ2OCwibmJmIjoxNjAzNjMzODY4LCJqdGkiOiJwTnNCd3ozREl4VkZCWlg1Iiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.qVYRE8zu84Po4FqTYJKAU8NcpjIFYpg2IRUyU55D4VY'}})
+            Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NDQ4NTMsImV4cCI6MTYwMzY0ODQ1MywibmJmIjoxNjAzNjQ0ODUzLCJqdGkiOiJQUWd4STNZcDN6YUZpajd3Iiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.xhwCbi_mrRh4uwLa7GuoCwkqccXHoSYg3A6RyxiMOXY'}})
         const response = await data.json()
         console.log(response)
 
@@ -105,26 +108,26 @@ app.get('/tariffs', async(req, res) =>{
     }
  })
 
-//Database Configuration
-const mongoose = require("mongoose");
-const DBurl = "mongodb://localhost:27017/eth-lagos";
+// //Database Configuration
+// const mongoose = require("mongoose");
+// const DBurl = "mongodb://localhost:27017/eth-lagos";
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
-// Connecting to the database
-mongoose.connect( DBurl , {
-    keepAlive: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  })
-  .then(() => {
-      console.log("Successfully connected to the database");
-  }).catch(err => {
-      console.log('Could not connect to the database. Exiting now...');
-      console.log(err)
-      process.exit();
-  });
+// // Connecting to the database
+// mongoose.connect( DBurl , {
+//     keepAlive: true,
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false
+//   })
+//   .then(() => {
+//       console.log("Successfully connected to the database");
+//   }).catch(err => {
+//       console.log('Could not connect to the database. Exiting now...');
+//       console.log(err)
+//       process.exit();
+  // });
 
 //Error Handling set up
 app.use((req, res, next) => {
