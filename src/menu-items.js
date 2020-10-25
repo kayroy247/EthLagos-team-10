@@ -17,51 +17,202 @@ export default {
         },
         {
             id: 'ui-element',
-            title: 'UI ELEMENT',
+            title: 'Agents',
             type: 'group',
             icon: 'icon-ui',
             children: [
                 {
                     id: 'basic',
-                    title: 'Component',
+                    title: 'AGENT',
                     type: 'collapse',
                     icon: 'feather icon-box',
                     children: [
                         {
                             id: 'button',
-                            title: 'Button',
+                            title: 'List',
                             type: 'item',
                             url: '/basic/button'
                         },
                         {
                             id: 'badges',
-                            title: 'Badges',
+                            title: 'Commission Types',
+                            type: 'item',
+                            url: '/basic/badges'
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            id: 'ui-forms',
+            title: 'METERS',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Meters',
+                    // type: 'item',
+                    type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                    children: [
+                        {
+                            id: 'button',
+                            title: 'List',
+                            type: 'item',
+                            url: '/basic/button'
+                        },
+                        {
+                            id: 'badges',
+                            title: 'Types',
+                            type: 'item',
+                            url: '/basic/badges'
+                        }
+                    ]
+                }
+                // {
+                //     id: 'bootstrap',
+                //     title: 'Types',
+                //     type: 'item',
+                //     icon: 'feather icon-server',
+                //     url: '/tables/bootstrap'
+                // }
+            ]
+        },
+        {
+            id: 'ui-forms',
+            title: 'TRANSACTIONS',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Transactions',
+                    type: 'item',
+                    // type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                }
+            ]
+
+        },
+        {
+            id: 'ui-forms',
+            title: 'TICKETS',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Tickets',
+                    //type: 'item',
+                    type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                    children: [
+                        {
+                            id: 'button',
+                            title: 'List',
+                            type: 'item',
+                            url: '/basic/button'
+                        },
+                        {
+                            id: 'badges',
+                            title: 'Users',
                             type: 'item',
                             url: '/basic/badges'
                         },
                         {
-                            id: 'breadcrumb-pagination',
-                            title: 'Breadcrumb & Pagination',
+                            id: 'badges',
+                            title: 'Categories',
                             type: 'item',
-                            url: '/basic/breadcrumb-paging'
+                            url: '/basic/badges'
+                        }
+                    ]
+                }
+                
+            ]
+
+        },
+        {
+            id: 'ui-forms',
+            title: 'TARRIFS',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Tarrifs',
+                    type: 'item',
+                    // type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                }
+            ]
+
+        },
+        {
+            id: 'ui-forms',
+            title: 'TARGETS',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Targets',
+                    type: 'item',
+                    // type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                }
+            ]
+
+        },
+        {
+            id: 'ui-forms',
+            title: 'REPORTS',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Reports',
+                    type: 'item',
+                    // type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                }
+            ]
+
+        },
+
+        {
+            id: 'ui-forms',
+            title: 'CONNECTION',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Connection',
+                    // type: 'item',
+                    type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                    children: [
+                        {
+                            id: 'button',
+                            title: 'Groups',
+                            type: 'item',
+                            url: '/basic/button'
                         },
                         {
-                            id: 'collapse',
-                            title: 'Collapse',
+                            id: 'badges',
+                            title: 'Types',
                             type: 'item',
-                            url: '/basic/collapse'
-                        },
-                        {
-                            id: 'tabs-pills',
-                            title: 'Tabs & Pills',
-                            type: 'item',
-                            url: '/basic/tabs-pills'
-                        },
-                        {
-                            id: 'typography',
-                            title: 'Typography',
-                            type: 'item',
-                            url: '/basic/typography'
+                            url: '/basic/badges'
                         }
                     ]
                 }
@@ -69,42 +220,87 @@ export default {
         },
         {
             id: 'ui-forms',
-            title: 'Forms & Tables',
+            title: 'SMS',
             type: 'group',
             icon: 'icon-group',
             children: [
                 {
                     id: 'form-basic',
-                    title: 'Form Elements',
-                    type: 'item',
+                    title: 'Sms',
+                    // type: 'item',
+                    type: 'collapse',
                     url: '/forms/form-basic',
-                    icon: 'feather icon-file-text'
-                },
-                {
-                    id: 'bootstrap',
-                    title: 'Table',
-                    type: 'item',
                     icon: 'feather icon-server',
-                    url: '/tables/bootstrap'
+                    children: [
+                        {
+                            id: 'button',
+                            title: 'Sms List',
+                            type: 'item',
+                            url: '/basic/button'
+                        },
+                        {
+                            id: 'badges',
+                            title: 'New Sms',
+                            type: 'item',
+                            url: '/basic/badges'
+                        }
+                    ]
                 }
             ]
         },
+
+        {
+            id: 'ui-forms',
+            title: 'ASSET TYPES',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Asset Types',
+                    type: 'item',
+                    // type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                }
+            ]
+
+        },
+
+        {
+            id: 'ui-forms',
+            title: 'MAINTENANCE',
+            type: 'group',
+            icon: 'icon-group',
+            children: [
+                {
+                    id: 'form-basic',
+                    title: 'Maintenance',
+                    type: 'item',
+                    // type: 'collapse',
+                    url: '/forms/form-basic',
+                    icon: 'feather icon-server',
+                }
+            ]
+
+        },
+
         {
             id: 'chart-maps',
-            title: 'Chart & Maps',
+            title: 'LOCATIONS',
             type: 'group',
             icon: 'icon-charts',
             children: [
                 {
                     id: 'charts',
-                    title: 'Charts',
+                    title: 'Add Clusters',
                     type: 'item',
                     icon: 'feather icon-pie-chart',
                     url: '/charts/nvd3'
                 },
                 {
                     id: 'maps',
-                    title: 'Map',
+                    title: 'Add Village',
                     type: 'item',
                     icon: 'feather icon-map',
                     url: '/maps/google-map'
@@ -113,13 +309,13 @@ export default {
         },
         {
             id: 'pages',
-            title: 'Pages',
+            title: 'Login',
             type: 'group',
             icon: 'icon-pages',
             children: [
                 {
                     id: 'auth',
-                    title: 'Authentication',
+                    title: 'Login Page',
                     type: 'collapse',
                     icon: 'feather icon-lock',
                     badge: {
@@ -132,7 +328,7 @@ export default {
                             title: 'Sign up',
                             type: 'item',
                             url: '/auth/signup-1',
-                            target: true,
+                            //target: true,
                             breadcrumbs: false
                         },
                         {
@@ -140,82 +336,82 @@ export default {
                             title: 'Sign in',
                             type: 'item',
                             url: '/auth/signin-1',
-                            target: true,
+                            //target: true,
                             breadcrumbs: false
                         }
                     ]
                 },
 
-                {
-                    id: 'sample-page',
-                    title: 'Sample Page',
-                    type: 'item',
-                    url: '/sample-page',
-                    classes: 'nav-item',
-                    icon: 'feather icon-sidebar'
-                },
-                {
-                    id: 'docs',
-                    title: 'Documentation',
-                    type: 'item',
-                    url: '/docs',
-                    classes: 'nav-item',
-                    icon: 'feather icon-help-circle'
-                },
-                {
-                    id: 'menu-level',
-                    title: 'Menu Levels',
-                    type: 'collapse',
-                    icon: 'feather icon-menu',
-                    children: [
-                        {
-                            id: 'menu-level-1.1',
-                            title: 'Menu Level 1.1',
-                            type: 'item',
-                            url: '#!',
-                        },
-                        {
-                            id: 'menu-level-1.2',
-                            title: 'Menu Level 2.2',
-                            type: 'collapse',
-                            children: [
-                                {
-                                    id: 'menu-level-2.1',
-                                    title: 'Menu Level 2.1',
-                                    type: 'item',
-                                    url: '#',
-                                },
-                                {
-                                    id: 'menu-level-2.2',
-                                    title: 'Menu Level 2.2',
-                                    type: 'collapse',
-                                    children: [
-                                        {
-                                            id: 'menu-level-3.1',
-                                            title: 'Menu Level 3.1',
-                                            type: 'item',
-                                            url: '#',
-                                        },
-                                        {
-                                            id: 'menu-level-3.2',
-                                            title: 'Menu Level 3.2',
-                                            type: 'item',
-                                            url: '#',
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    id: 'disabled-menu',
-                    title: 'Disabled Menu',
-                    type: 'item',
-                    url: '#',
-                    classes: 'nav-item disabled',
-                    icon: 'feather icon-power'
-                },
+                // {
+                //     id: 'sample-page',
+                //     title: 'Sample Page',
+                //     type: 'item',
+                //     url: '/sample-page',
+                //     classes: 'nav-item',
+                //     icon: 'feather icon-sidebar'
+                // },
+                // {
+                //     id: 'docs',
+                //     title: 'Documentation',
+                //     type: 'item',
+                //     url: '/docs',
+                //     classes: 'nav-item',
+                //     icon: 'feather icon-help-circle'
+                // },
+                // {
+                //     id: 'menu-level',
+                //     title: 'Menu Levels',
+                //     type: 'collapse',
+                //     icon: 'feather icon-menu',
+                //     children: [
+                //         {
+                //             id: 'menu-level-1.1',
+                //             title: 'Menu Level 1.1',
+                //             type: 'item',
+                //             url: '#!',
+                //         },
+                //         {
+                //             id: 'menu-level-1.2',
+                //             title: 'Menu Level 2.2',
+                //             type: 'collapse',
+                //             children: [
+                //                 {
+                //                     id: 'menu-level-2.1',
+                //                     title: 'Menu Level 2.1',
+                //                     type: 'item',
+                //                     url: '#',
+                //                 },
+                //                 {
+                //                     id: 'menu-level-2.2',
+                //                     title: 'Menu Level 2.2',
+                //                     type: 'collapse',
+                //                     children: [
+                //                         {
+                //                             id: 'menu-level-3.1',
+                //                             title: 'Menu Level 3.1',
+                //                             type: 'item',
+                //                             url: '#',
+                //                         },
+                //                         {
+                //                             id: 'menu-level-3.2',
+                //                             title: 'Menu Level 3.2',
+                //                             type: 'item',
+                //                             url: '#',
+                //                         }
+                //                     ]
+                //                 }
+                //             ]
+                //         }
+                //     ]
+                // },
+                // {
+                //     id: 'disabled-menu',
+                //     title: 'Disabled Menu',
+                //     type: 'item',
+                //     url: '#',
+                //     classes: 'nav-item disabled',
+                //     icon: 'feather icon-power'
+                // },
                 /*{
                     id: 'buy-now',
                     title: 'Buy Now',
