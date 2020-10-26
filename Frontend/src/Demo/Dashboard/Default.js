@@ -10,6 +10,8 @@ import avatar3 from '../../assets/images/user/avatar-3.jpg';
 import axios from 'axios';
 import Swal from "sweetalert2";
 import axiosInstance from '../../api/api.js'
+import { useHistory, withRouter } from "react-router-dom";
+
 
 
 class Dashboard extends React.Component {
@@ -20,6 +22,7 @@ class Dashboard extends React.Component {
         };
       }
     
+     
 
       componentDidMount() {
           this.getGrids();
@@ -27,17 +30,16 @@ class Dashboard extends React.Component {
 
 
        getGrids() {
-           console.log(this);
+           
         axiosInstance
           .get("/mini-grids")
           .then( (response) => {
-           console.log(this);
+           
 
-            if (response.data) {
-              this.setState({miniGrids: response.data})
-              console.log(response.data);
-              
+            if (response?.data?.message == "Token is Expired") {
+               return  console.log(response.data);
             } else {
+             this.setState({miniGrids: response.data})
               console.log(response);
             }
           })
@@ -47,9 +49,11 @@ class Dashboard extends React.Component {
           .finally(() => console.log("final"));
       };
 
-      handleClick(e) {
+      handleClick = (e) => {
+        const {history} = this.props;
         e.preventDefault();
         console.log('The link was clicked.');
+        history.push("/datta-able/react/default/forms/form-basic")
       }
     
     
@@ -453,4 +457,4 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
