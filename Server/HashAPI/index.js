@@ -5,6 +5,7 @@
   The Code is left here for use later.
 */
 
+
 //Dependencies used in the api
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -12,6 +13,7 @@ const fetch = require('node-fetch');
 const SHA256 = require("crypto-js/sha256");
 var cors = require('cors')
 
+const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM3MjM1NzQsImV4cCI6MTYwMzcyNzE3NCwibmJmIjoxNjAzNzIzNTc0LCJqdGkiOiJ5VGlPSmRkeG1ucG9NRXJ4Iiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.Wto0yKm5y0EATBNehfzbIlPveB9bBt_W3hyYOh32lxc"
 // const DATA = require('./models/index')
 
 const app = express();
@@ -36,7 +38,7 @@ app.get('/index', async(req, res) =>{
 app.get('/mini-grids', async(req, res) =>{
   try {
       const data = await fetch(`${url}/mini-grids`, {headers: {'content-type': 'application/json',
-          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGVtby5taWNyb3Bvd2VybWFuYWdlci5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MDM2NjI1ODcsImV4cCI6MTYwMzY2NjE4NywibmJmIjoxNjAzNjYyNTg3LCJqdGkiOiJTN29FS1p2aUlReVh2N05DIiwic3ViIjoyMiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.YrYu6zVUZxEJpZGwjZv_x1nw_TLNOI5MtcDvf-ex_4M'}})
+          Authorization: `Bearer ${token}`}})
       const response = await data.json()
       console.log(response.data)
 
