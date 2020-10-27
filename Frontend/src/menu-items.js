@@ -181,7 +181,7 @@ export default {
                     title: 'Reports',
                     type: 'item',
                     // type: 'collapse',
-                    url: '/forms/form-basic',
+                    url: '/dashboard/report',
                     icon: 'feather icon-server',
                 }
             ]
