@@ -2,6 +2,8 @@ $cd Server/HashAPI
 
 $npm install
 
+npm install dotenv
+
 $nodemon index.js
 
 https://localhost:5000/ will present a `Welcome` message
