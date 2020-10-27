@@ -3,6 +3,8 @@ import windowSize from 'react-window-size';
 
 import Aux from "../../../../../../hoc/_Aux";
 import DEMO from "../../../../../../store/constant";
+import { useHistory } from "react-router-dom";
+
 
 class NavSearch extends Component {
     state = {
