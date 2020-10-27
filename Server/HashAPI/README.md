@@ -2,7 +2,7 @@ $cd Server/HashAPI
 
 $npm install
 
-npm install dotenv
+$npm install dotenv
 
 $nodemon index.js
 
