@@ -1,6 +1,8 @@
 import React, { Component, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import SignIn1 from '../Demo/Authentication/SignIn/SignIn1'
+import SignUp1 from '../Demo/Authentication/SignUp/SignUp1'
 
 import '../../node_modules/font-awesome/scss/font-awesome.scss';
 
@@ -16,10 +18,10 @@ const AdminLayout = Loadable({
 });
 
 class App extends Component {
-    componentDidMount() {
-        // window.location = "/Eth-Lagos/auth/signin-1";
+    // componentDidMount() {
+    //     window.location = "/";
         
-    }
+    // }
     render() {
         const menu = routes.map((route, index) => {
           return (route.component) ? (
@@ -40,6 +42,8 @@ class App extends Component {
                     <Suspense fallback={<Loader/>}>
                         <Switch>
                             {menu}
+                            <Route path="/" exact component={SignIn1} />
+                            {/* <Route path="/"  component={SignUp1} /> */}
                             <Route path="/" component={AdminLayout} />
                         </Switch>
                     </Suspense>
