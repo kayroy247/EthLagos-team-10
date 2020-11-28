@@ -1,6 +1,6 @@
 export default {
     defaultPath: '/dashboard/default',
-    basename: '/ETH-Lagos ', // only at build time to set, like /datta-able
+    basename: '/ETH-Lagos', // only at build time to set, like
     layout: 'vertical', // vertical, horizontal (not available in lite version)
     preLayout: null, // (not available in lite version)
     collapseMenu: false, // mini-menu
